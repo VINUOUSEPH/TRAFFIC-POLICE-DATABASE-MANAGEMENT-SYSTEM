@@ -156,6 +156,11 @@ ALTER TABLE `u_info`
 ALTER TABLE `vehicle_detail`
   ADD PRIMARY KEY (`vid`);
 
+ALTER TABLE `fee_payment`
+  ADD PRIMARY KEY (`fineid`);
+
+ALTER TABLE `accident_details`
+  ADD PRIMARY KEY (`report_no`);
 --
 -- AUTO_INCREMENT for dumped tables
 --
