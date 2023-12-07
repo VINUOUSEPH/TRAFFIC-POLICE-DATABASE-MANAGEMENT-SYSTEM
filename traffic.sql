@@ -82,7 +82,7 @@ INSERT INTO `u_info` (`uid`, `pid`, `name`, `adds`, `pno`, `aids`, `email`, `cha
 
 CREATE TABLE `vehicle_detail` (
   `vid` int(11) NOT NULL,
-  `uid` int(10) NOT NULL,
+  `uid` int(11) NOT NULL,
   `vname` varchar(20) NOT NULL,
   `vhno` varchar(30) NOT NULL,
   `vtype` varchar(30) NOT NULL,
@@ -115,7 +115,26 @@ CREATE TABLE `fee_payment`(
   )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
 INSERT INTO ` fee_payment`( `fineid`, `offense_date`,`amount`,`location`,`fine_type`,`description`,`vhno`) VALUES
---
+  (1111,'2020-11-05','5000','Thrissur','ipc 346','drunk and drive','10'),
+  (2222,'2021-05-10','10000','Perumbavoor','ipc 255','overspeed','20'),
+  (3333,'2019-03-15','15000','kochi','ipc 210','riding without helmet','12');
+
+
+  CREATE TABLE `accident_details`(
+  `report_no` int(10) NOT NULL,
+  `accident_date` date NOT NULL,
+  `time` varchar(30) NOT NULL,
+  `location` varchar(30) NOT NULL,
+  `description` varchar(200),
+  `vhno` varchar(30) references vehicle_detail(vhno),
+  `uid` int(11) REFERENCES vehicle_detail(uid)
+  )ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+INSERT INTO `accident_details`(`report_no`,`accident_date`,`time`,`location`,`description`,`vhno`,`uid`) VALUES
+  (123,'2020-01-15','2:00pm','Kochi','drunk and drive','ka 11 ks3712',1),
+  (222,'2021-11-13','3:30am','Thrissur','driving against signal','6789',2),
+  (345,'2019-05-11','4:00pm','Ollur','Overspeed','56778',3);
 -- Indexes for dumped tables
 --
 
