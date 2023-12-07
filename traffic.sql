@@ -102,6 +102,19 @@ INSERT INTO `vehicle_detail` (`vid`, `uid`, `vname`, `vhno`, `vtype`, `vmodel`, 
 (3, 3, 'gfhjk', '56778', '2', 'ghjjk', 1, '5000', '0'),
 (4, 4, 'bullet', '258', '2', 'bs4', 2, '20000', '0');
 
+
+
+CREATE TABLE `fee_payment`(
+  `fineid` int(11) NOT NULL,
+  `offense_date` date NOT NULL,
+  `amount` varchar(30) NOT NULL,
+  `location` varchar(30) NOT NULL,
+  `fine_type` varchar(30) NOT NULL,
+  `description` varchar(200) NOT NULL,
+  `vhno` varchar(30) references vehicle_details(vhno)
+  )ENGINE=InnoDB DEFAULT CHARSET=latin1;
+--
+INSERT INTO ` fee_payment`( `fineid`, `offense_date`,`amount`,`location`,`fine_type`,`description`,`vhno`) VALUES
 --
 -- Indexes for dumped tables
 --
